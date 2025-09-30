@@ -34,7 +34,7 @@ const ProductList = () => {
             }
             setLoading(false);
         };
-        
+        toast.info("Loading products...");
         fetchProducts();
     }, []);
 

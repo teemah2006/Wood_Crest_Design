@@ -18,6 +18,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
+        toast.error("User not authenticated")
         router.push("/admin/login");
       } else {
         setUser(currentUser);
@@ -26,7 +27,7 @@ export default function AdminDashboard() {
     return () => unsubscribe();
   }, [router]);
 
-  if (!user) return toast.error("User not authenticated");
+  if (!user) return ;
 
   return (
     <div className="p-6">

@@ -100,7 +100,6 @@ export default function AddProductForm(props: ProductInputProps = {}) {
       const productRef = doc(db, "products", productId);
       await updateDoc(productRef, productData);
       toast.success("Product updated successfully!");
-      router.push("/admin/dashboard");
     } else {
       // ➕ Add mode — create new product
       await addDoc(collection(db, "products"), {
@@ -108,7 +107,6 @@ export default function AddProductForm(props: ProductInputProps = {}) {
         createdAt: new Date(),
       });
       toast.success("Product added successfully!");
-      router.push("/admin/dashboard");
     }
 
     // Reset form
