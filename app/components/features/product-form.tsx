@@ -25,13 +25,13 @@ export default function AddProductForm(props: ProductInputProps = {}) {
   // console.log("Current user:", auth.currentUser?.uid);
   const router = useRouter();
   const user = auth.currentUser;
-  const [name, setName] = useState(props? props.name: "");
-  const [price, setPrice] = useState(props? props.price: "");
-  const [category, setCategory] = useState(props? props.category: "");
-  const [subCategory, setSubCategory] = useState(props? props.subCategory: "");
+  const [name, setName] = useState(props? props.name? props.name : "" : "");
+  const [price, setPrice] = useState(props? props.price? props.price : "" : "");
+  const [category, setCategory] = useState(props? props.category? props.category : "" : "");
+  const [subCategory, setSubCategory] = useState(props? props.subCategory? props.subCategory : "" : "");
   const [images, setImages] = useState<File[] | string[]>(props? props.images? props.images : [] : []);
   const [loading, setLoading] = useState(false);
-  const [description, setDescription] = useState(props? props.description: "");
+  const [description, setDescription] = useState(props? props.description? props.description : "" : "");
   const [productId, setProductId] = useState(props? props.id? props.id : "" : "");
 
   // Define categories
@@ -117,6 +117,10 @@ export default function AddProductForm(props: ProductInputProps = {}) {
     setSubCategory("");
     setImages([]);
     setProductId(""); // Optional
+    
+    props.onSuccess?.();
+    router.refresh();
+
   } catch (err) {
     console.error("Error saving product:", err);
     toast.error("Failed to save product. Please try again.");
@@ -190,6 +194,8 @@ export default function AddProductForm(props: ProductInputProps = {}) {
         <div className="grid grid-cols-3 gap-2 mt-2">
           {images.map((img, i) => (
             <Image
+            width={100}
+            height={100}
               key={i}
               src={typeof img === "string"? img: URL.createObjectURL(img)}
               alt="Preview"

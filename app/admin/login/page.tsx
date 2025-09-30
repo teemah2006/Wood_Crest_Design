@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/app/lib/firebase";
 
 
 
@@ -20,7 +22,7 @@ export default function AdminLogin() {
         if (email.trim() === "fatimaholadipo4@gmail.com" || password.trim() === process.env.NEXT_PUBLIC_ADMIN_PASS) {
             setLoading(true);
             try {
-                // const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                 await signInWithEmailAndPassword(auth, email, password);
                 // const user = userCredential.user;
                 // Optionally, you can set user role in Firestore if not already set
                 // await setDoc(doc(db, "users", user.uid), {

@@ -34,9 +34,11 @@ export interface ProductInputProps {
         seconds: number;
         nanoseconds: number;
     };
+    onSuccess?: () => void;
 }
 export interface ProductCardProps {
     product: ProductProps;
     onDelete: (id: string) => void;
     onEdit?: (product: ProductProps) => void;
+    onEditSuccess?: () => void;
 }

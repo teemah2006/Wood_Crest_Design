@@ -13,11 +13,12 @@ export default function AdminDashboard() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [showForm, setShowForm] = useState(false);
-  
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
+        
         toast.error("User not authenticated")
         router.push("/admin/login");
       } else {
@@ -48,9 +49,12 @@ export default function AdminDashboard() {
         </div>
 
         {showForm && (
-        <AddProductForm />
+        <AddProductForm onSuccess={() => {
+          setRefreshKey(k => k + 1);
+          setShowForm(false); // Optionally close the form after success
+        }} />
       )}
-        <ProductList />
+        <ProductList key={refreshKey}/>
       
       </div>
       
