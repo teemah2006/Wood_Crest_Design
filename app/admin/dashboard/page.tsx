@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { auth } from "@/app/lib/firebase";
+import { auth } from "@/lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import type { User } from "firebase/auth";
@@ -33,7 +33,7 @@ export default function AdminDashboard() {
   return (
     <div className="p-6">
       <header>
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-6 h-auto">
           <h1 className="text-3xl font-semibold mb-6">Welcome, Admin</h1>
           {/* <nav>
           <span className="mr-4 text-gray-600">Logged in as: {user.email}</span>

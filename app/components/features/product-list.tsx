@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { auth, db } from "@/app/lib/firebase";
+import { auth, db } from "@/lib/firebase";
 import { getDocs, doc, deleteDoc, collection } from "firebase/firestore";
 import ProductCard from "../common/ProductCard";
-import { type ProductProps } from "@/app/interfaces";
+import { type ProductProps } from "@/interfaces";
 import { toast } from "react-toastify";
 const ProductList = () => {
   const [products, setProducts] = useState<ProductProps[]>([]);

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { db, storage, auth } from "@/app/lib/firebase";
+import { db, storage, auth } from "@/lib/firebase";
 import { collection, addDoc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid";
-import { subcategories } from "@/app/constants";
+import { subcategories } from "@/constants";
 import Button from "../common/Button";
 import { doc, getDoc } from "firebase/firestore";
-import { ProductInputProps } from "@/app/interfaces";
+import { ProductInputProps } from "@/interfaces";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -117,7 +117,7 @@ export default function AddProductForm(props: ProductInputProps = {}) {
     setSubCategory("");
     setImages([]);
     setProductId(""); // Optional
-    
+
     props.onSuccess?.();
     router.refresh();
 

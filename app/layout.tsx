@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Header from "@/app/components/layout/Header";
+import Footer from "@/app/components/layout/Footer";
 export const metadata: Metadata = {
   title: "WoodCrest Designs",
   description: "WoodCrest Designs - Crafting Comfort and Style in Every Piece",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body
         className={` antialiased`}
       >
+        <Header />
         {children}
         <ToastContainer
           position="top-right"   // You can choose: "top-center", "bottom-left" etc.
@@ -30,6 +32,7 @@ export default function RootLayout({
           draggable
           theme="light"        // You can try: "light", "dark", "colored"
         />
+        <Footer />
       </body>
     </html>
   );

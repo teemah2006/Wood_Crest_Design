@@ -1,5 +1,5 @@
 "use client";
-import { ProductCardProps } from "@/app/interfaces";
+import { ProductCardProps } from "@/interfaces";
 import Button from "./Button";
 import { useState } from "react";
 import AddProductForm from "../features/product-form";
