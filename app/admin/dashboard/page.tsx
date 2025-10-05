@@ -54,7 +54,7 @@ export default function AdminDashboard() {
           setShowForm(false); // Optionally close the form after success
         }} />
       )}
-        <ProductList key={refreshKey}/>
+        <ProductList key={refreshKey} user='admin'/>
       
       </div>
       

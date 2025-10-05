@@ -62,3 +62,30 @@ export const subcategories: { [key: string]: string[] } = {
       "Planters & Stands",
     ],
 };
+
+
+export const categories = [
+  { name: "Sofas", imageUrl: "https://d1wc69nzx5ojwh.cloudfront.net/media/catalog/product/cache/2c7fa294d57090ee456930df120451a9/1/0/107180253_ai.webp",  
+    fullname: "Sofas & seating" },
+  { name: "Bedroom", imageUrl: "https://www.bocadolobo.com/en/inspiration-and-ideas/wp-content/uploads/2023/09/Indulge-In-Opulence-50-Luxurious-Bedroom-Decor-Ideas-1-1024x788.jpg",
+      fullname: "Bedroom Furniture" },
+  { name: "Dining/Kitchen", imageUrl:"https://vitafoamng.com/wp-content/uploads/2021/12/Elegant-Dining-Set-Main.jpg",  
+    fullname: "Dining & Kitchen" },
+  { name: "Living Room", imageUrl: "https://nobili-design.com/storage/gallery/3188/lg/8936modern_living_rooms_with_the_right_furniture.jpg", 
+    fullname: "Living Room Essentials" },
+  { name: "Space-Saving", imageUrl:"https://picketandrail.com/cdn/shop/articles/multifunctional-furniture-for-singapore-homes-909803.jpg?v=1686388612",
+      fullname: "Space-Saving & Multifunctional" },
+  { name: "Custom Designs", imageUrl:"https://wood-crest-design.vercel.app/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fwood-crest.firebasestorage.app%2Fo%2Fproducts%252FBedroom%2520Furniture%252Fd6bc3671-17c7-4fae-b049-23b3a10f76aa-custom%2520traveling%2520bag.jpg%3Falt%3Dmedia%26token%3D730d83fd-0384-46f3-b465-812a0e687852&w=640&q=75",  fullname: "Custom & Dope Designs" },
+  { name: "Outdoor", imageUrl:"https://www.jensenoutdoor.com/wp-content/uploads/2024/09/PlumeVelo-2x1Aspect-Shot1.jpg", 
+    fullname: "Outdoor Furniture" },
+  { name: "Office", imageUrl:"https://www.eunicon.com.ng/cdn/shop/products/rosewood-executive-desk-with-metal-legs_1028x.jpg?v=1617895155",
+     fullname: "Office Furniture" },
+  { name: "Accessories", imageUrl:"https://www.tradegully.com/wp-content/uploads/2024/04/modern-living-room-furniture.jpg",  fullname: "Accessories & Decor" },
+];
+
+export const filterOptions = [
+  { value: 'name', label: 'All' },
+  { value: 'price ascending', label: 'Price: Low to High' },
+  { value: 'price descending', label: 'Price: High to Low' },
+  { value: 'new', label: 'New Arrivals' },
+];

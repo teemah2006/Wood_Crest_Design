@@ -1,12 +1,10 @@
-import React from "react";
+import { Suspense } from "react"
+import ProductsContent from "./ProductsContent"
 
-const Products: React.FC = () => {
+export default function ProductsPage() {
   return (
-    <div>
-      {/* Your login form or content here */}
-      Login Page
-    </div>
-  );
-};
-
-export default Products;
+    <Suspense fallback={<p>Loading...</p>}>
+      <ProductsContent />
+    </Suspense>
+  )
+}

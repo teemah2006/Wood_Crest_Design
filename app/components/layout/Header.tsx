@@ -11,16 +11,32 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "../ui/navigation-menu"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { IoSearch } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { categories } from "@/constants";
+import { useRouter } from "next/navigation";
+
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const router = useRouter();
+    const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            if (searchTerm.trim()) {
+                router.push(`/products?query=${encodeURIComponent(searchTerm)}`)
+            }
+        }, 500)
+
+        return () => clearTimeout(timeout)
+    }, [searchTerm, router])
+
     return (
-        <header className="quattrocento-regular bg-white z-10 border-b border-[#D9D9D9] w-full md:h-[96px] h-[80px] flex items-center justify-between md:p-8 p-6 relative">
+        <header className="quattrocento-regular bg-white z-10 border-b border-[#D9D9D9] w-full md:h-[96px] h-[80px] flex items-center justify-between md:p-8 p-4 relative">
             {/* Icon button only on mobile */}
             <Button
                 variant="ghost"
@@ -51,36 +67,16 @@ export default function Header() {
                         <NavigationMenuTrigger>
                             <Link href='/products'>Products</Link>
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            <ul className="grid w-[200px] gap-4">
+                        <NavigationMenuContent className="z-20">
+                            <ul className="grid w-[200px] gap-4 ">
                                 <li>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Sofas & Seating">Sofas & Seating</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Bedroom Furniture">Bedroom Furniture</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Dining Kitchen">Dining & Kitchen</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Office Furniture">Office Furniture</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Living Room">Living Room</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Outdoor Furniture">Outdoor Furniture</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Space-Saving & Multifunctional">Space-Saving & Multifunctional</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Custom & Dope Designs">Custom & Dope Designs</Link>
-                                    </NavigationMenuLink>
-                                    <NavigationMenuLink asChild>
-                                        <Link href="/products/Accessories & Decor">Accessories & Decor</Link>
-                                    </NavigationMenuLink>
+                                    {
+                                        categories.map((category) => (
+                                            <NavigationMenuLink asChild key={category.name}>
+                                                <Link href={`/products/${category.fullname}`}>{category.fullname}</Link>
+                                            </NavigationMenuLink>
+                                        ))
+                                    }
                                 </li>
                             </ul>
                         </NavigationMenuContent>
@@ -162,8 +158,8 @@ export default function Header() {
                     <Input
                         type="text"
                         placeholder="Search furniture..."
-                        // value={searchQuery}
-                        // onChange={(e) => onSearchChange(e.target.value)}
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                         className="pr-10 rounded-full border-none bg-[#F5F5F5]  w-full"
                     />
                 </div>
@@ -185,8 +181,8 @@ export default function Header() {
                             <Input
                                 type="text"
                                 placeholder="Search furniture..."
-                                // value={searchQuery}
-                                // onChange={(e) => onSearchChange(e.target.value)}
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
                                 className="pr-10 rounded-full w-full"
                             />
                         </div>
