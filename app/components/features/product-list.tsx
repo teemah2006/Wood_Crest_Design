@@ -21,12 +21,16 @@ import {
 } from "../ui/drawer"
 import CartPage from "./CartCard";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
+
 
 
 const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, subCategoryFilter, sortBy, priceRange }) => {
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [loading, setLoading] = useState(true);
     const cartTotal = useCartStore((state) => state.totalQuantity());
+    const pathname = usePathname();
+
 
 
     const filteredProducts = useMemo(() => {
@@ -93,6 +97,8 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                         category: data.category,
                         subCategory: data.subCategory,
                         images: data.images,
+                        createdAt: data.createdAt,
+                        isSignature: data.isSignature? data.isSignature : false
                         // add any other fields required by ProductProps here
                     } as ProductProps;
                 });
@@ -133,19 +139,20 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
     }
 
     return (
-        <div className="p-4 max-h-screen">
+        <div className="p-4 max-h-screen mb-4">
             <p className="text-muted-foreground mb-2">
                 {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-y-auto max-h-screen  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  max-h-screen  ">
 
                 {filteredProducts.map(product => (
                     <ProductDisplayCard product={product} key={product.id} />
                 ))}
 
+                {!pathname.startsWith("/admin") && (
                 <Drawer direction="right">
                     <DrawerTrigger >
-                        <div className="fixed bottom-4 rounded-full md:p-4 p-2 bg-[#D9D9D9] right-2 shadow-lg z-50 cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                        <div className="fixed bottom-4 rounded-full md:p-4 p-2 bg-[#D9D9D9] right-2 shadow-lg z-2 cursor-pointer hover:shadow-xl transition-shadow duration-300">
                             <div className="rounded-xl p-2 text-xs md:text-sm bg-black absolute -top-4 text-white">{cartTotal}</div>
                             <ShoppingCart className="text-[#E5A000] w-[40px] h-[40px] md:w-[50px] md:h-[50px]" />
                         </div>
@@ -161,7 +168,7 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
-
+                )}
 
             </div>
         </div>

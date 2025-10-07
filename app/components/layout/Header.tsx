@@ -48,7 +48,7 @@ export default function Header() {
                 <IoMenuOutline />
             </Button>
             {/* the logo */}
-            <h1 className="md:text-2xl text-xl font-semibold text-[#905D06]">WoodCrest Designs</h1>
+            <h1 className="lg:text-2xl text-xl font-semibold text-[#905D06]">WoodCrest Designs</h1>
 
             {/* Desktop nav */}
             <NavigationMenu className="hidden md:flex md:flex-row">
@@ -73,7 +73,7 @@ export default function Header() {
                                     {
                                         categories.map((category) => (
                                             <NavigationMenuLink asChild key={category.name}>
-                                                <Link href={`/products/${category.fullname}`}>{category.fullname}</Link>
+                                                <Link href={`/products/${category.fullname}`}>{category.name}</Link>
                                             </NavigationMenuLink>
                                         ))
                                     }
@@ -107,35 +107,15 @@ export default function Header() {
                             </li>
                             <li>
                                 <details>
-                                    <summary className="py-2 px-4 rounded cursor-pointer hover:bg-gray-100">Products</summary>
+                                    <summary className="py-2 px-4 rounded cursor-pointer hover:bg-gray-100"><Link href='/products'>Products</Link></summary>
                                     <ul className="pl-4">
-                                        <li>
-                                            <Link href="/products/Sofas & Seating" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Sofas & Seating</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Bedroom Furniture" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Bedroom Furniture</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Dining Kitchen" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Dining & Kitchen</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Office Furniture" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Office Furniture</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Living Room" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Living Room</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Outdoor Furniture" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Outdoor Furniture</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Space-Saving & Multifunctional" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Space-Saving & Multifunctional</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Custom & Dope Designs" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Custom & Dope Designs</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/products/Accessories & Decor" className="block py-1 px-2 rounded hover:bg-gray-100" onClick={() => setIsMenuOpen(false)}>Accessories & Decor</Link>
-                                        </li>
+                                        {
+                                        categories.map((category) => (
+                                            <li key={category.name}>
+                                                <Link href={`/products/${category.fullname}`}>{category.name}</Link>
+                                            </li>
+                                        ))
+                                    }
                                     </ul>
                                 </details>
                             </li>
@@ -153,7 +133,7 @@ export default function Header() {
             {/* other nav functions */}
             <div className="flex items-center gap-4">
                 {/* desktop search input */}
-                <div className="flex-1 max-w-md mx-4 relative hidden md:block">
+                <div className="flex-1 max-w-md lg:mx-4 relative hidden md:block">
                     <IoSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                     <Input
                         type="text"
@@ -189,10 +169,10 @@ export default function Header() {
                     </div>
                 )}
                 <Link href="/favourites" className="">
-                    <FaRegHeart className="w-4 h-4 md:w-6 md:h-6 cursor-pointer" />
+                    <FaRegHeart className="w-4 h-4 lg:w-6 lg:h-6 cursor-pointer" />
                 </Link>
                 <Link href="/account" className="">
-                    <FiUser className="w-4 h-4 md:w-6 md:h-6 cursor-pointer" />
+                    <FiUser className="w-4 h-4 lg:w-6 lg:h-6 cursor-pointer" />
                 </Link>
 
             </div>

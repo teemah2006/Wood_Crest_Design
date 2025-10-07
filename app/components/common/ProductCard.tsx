@@ -27,7 +27,7 @@ const ProductDisplayCard: React.FC<ProductDisplayProps> = ({ product }) => {
                 {product.images && product.images.length > 0 && (
                     <Image width={200} height={200} src={product.images[0]} alt={product.name} className="w-full h-60 object-cover  rounded" />
                 )}
-                <div className="absolute inset-0 bg-transparent opacity-0 group-hover:opacity-100  transition-opacity duration-300 flex flex-col justify-between rounded p-4">
+                <div className="absolute inset-0 bg-transparent lg:opacity-0 group-hover:opacity-100  transition-opacity duration-300 flex flex-col justify-between rounded p-4">
                     <div className='w-full flex justify-end'>
                         <Button variant='default' className='rounded-full'><Heart/></Button>
                     </div>

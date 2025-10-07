@@ -35,9 +35,11 @@ const categories = [
 
 const ProductsContent: React.FC = () => {
   const [currentCategory, setCurrentCategory] = useState<string>("All");
-  const [sortBy, setSortBy] = useState<'price ascending' | 'price descending' | 'new' | 'name'>('name');
-  const searchParams = useSearchParams()
-  const query = searchParams.get('query') || ''
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query') || '';
+  const filter = searchParams.get('filter') || '';
+  const [sortBy, setSortBy] = useState<'price ascending' | 'price descending' | 'new' | 'name'>(filter? filter as 'price ascending' | 'price descending' | 'new' | 'name' : 'name');
+
 
   const CategoryVariant = (category: string) => {
     return currentCategory === category ? "default" : "outline";

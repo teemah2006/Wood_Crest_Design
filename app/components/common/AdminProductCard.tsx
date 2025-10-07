@@ -8,6 +8,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onDelete, onEditSucc
     const [isediting, setIsEditing] = useState(false);
 
     if (isediting) {
+        console.log('editing')
         return (
             <div className="border rounded-lg p-4 shadow hover:shadow-lg transition-shadow duration-300">
                 <AddProductForm

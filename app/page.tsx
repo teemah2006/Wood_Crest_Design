@@ -1,10 +1,17 @@
-import Link from "next/link";
+import HeroSection from "./components/landing-page/LandingHero";
+import SignatureSection from "./components/landing-page/SignatureSection";
+import ProductsCategories from "./components/landing-page/ProductCategories";
+import GiveawaySection from "./components/landing-page/GiveawaySection";
+import BlogSection from "./components/landing-page/BlogSection";
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 space-y-4 quattrocento-regular">
-      <h1 className="text-2xl">Welcome to WoodCrest Designs</h1>
-      <p>Nothing to see here yet!</p>
-      <p>Are you an admin? click <Link href='/admin/dashboard'>here</Link></p>
+ return(
+    <div className="w-full">
+      <HeroSection/>
+      <SignatureSection/>
+      <ProductsCategories/>
+      <GiveawaySection/>
+      <BlogSection/>
+
     </div>
   );
 }

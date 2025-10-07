@@ -8,18 +8,18 @@ import type { User } from "firebase/auth";
 import AddProductForm from "@/app/components/features/product-form";
 import Button from "@/app/components/common/Button";
 import ProductList from "@/app/components/features/product-list";
-import { toast } from "react-toastify";
 export default function AdminDashboard() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
         
-        toast.error("User not authenticated")
+        // toast.error("User not authenticated")
         router.push("/admin/login");
       } else {
         setUser(currentUser);
@@ -31,7 +31,7 @@ export default function AdminDashboard() {
   if (!user) return ;
 
   return (
-    <div className="p-6">
+    <div className="p-6 z-[999]">
       <header>
         <div className="flex justify-between items-center mb-6 h-auto">
           <h1 className="text-3xl font-semibold mb-6">Welcome, Admin</h1>

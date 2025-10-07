@@ -2,7 +2,7 @@ export interface ButtonProps{
     size?: 'small' | 'medium' | 'large';
     shape?: 'rounded-sm' | 'rounded-md' |'rounded-full';
     type?: 'button' | 'submit' | 'reset';
-    onClick?: (id: string) => void;
+    onClick?: () => void;
     text?: string;
     dis?: boolean;
     color?: 'black' | 'gray';
@@ -20,6 +20,7 @@ export interface ProductProps {
         seconds: number;
         nanoseconds: number;
     };
+    isSignature?: boolean;
 }
 
 export interface ProductDisplayProps {
@@ -39,6 +40,7 @@ export interface ProductInputProps {
         nanoseconds: number;
     };
     onSuccess?: () => void;
+    isSignature?: boolean
 }
 export interface ProductCardProps {
     product: ProductProps;
@@ -74,4 +76,23 @@ export interface CartState {
 
 export interface CategoryPageProps {
   category: string
+}
+
+export interface BlogPostProps{
+    title: string;
+    brief: string;
+    content: string;
+    category:string;
+    featuredImage: string;
+    date: string;
+}
+
+export interface BlogCardProps{
+    post: BlogPostProps
+}
+
+export interface ModalProps{
+    post: BlogPostProps;
+    open?: boolean;
+    onClose: (a: boolean)=>void;
 }

@@ -1,0 +1,58 @@
+[
+  {
+    "title": "The Art of Minimalist Furniture Design",
+    "brief": "Minimalist furniture isn’t just about simplicity; it’s about harmony. Discover how clean lines and neutral tones create calm, timeless interiors.",
+    "content": "Minimalist furniture design focuses on simplicity, balance, and functionality. Every curve, edge, and finish is intentional, eliminating unnecessary details to allow beauty to shine through structure. This approach encourages open spaces, natural light, and pieces that breathe. In modern homes, minimalist furniture pairs beautifully with soft woods, matte finishes, and neutral textiles. To achieve this style, select multipurpose items—like extendable tables or modular sofas—that blend effortlessly into the room while serving practical needs.",
+    "date": "October 3, 2025",
+    "category": "Furniture Architecture",
+    "featuredImage": "/assets/blog/minimalist-design.jpg"
+  },
+  {
+    "title": "How to Choose the Perfect Sofa for Your Living Room",
+    "brief": "From cozy sectionals to sleek modern couches, your sofa sets the tone for your entire space. Here’s how to choose the perfect one.",
+    "content": "Selecting a sofa goes beyond color or fabric. Start with the room’s size—ensure at least 18 inches of walking space between furniture. For small apartments, opt for L-shaped or modular sofas that can adjust to fit corners. Material also matters: leather offers durability, while linen or velvet adds texture. Lastly, consider your lifestyle—families may prefer washable slipcovers, while single users can explore designer statement pieces. The perfect sofa is both visually appealing and deeply comfortable.",
+    "date": "September 29, 2025",
+    "category": "Home Styling",
+    "featuredImage": "/assets/blog/choose-sofa.jpg"
+  },
+  {
+    "title": "Sustainable Furniture: Building Homes with the Planet in Mind",
+    "brief": "Eco-friendly design is more than a trend—it’s a responsibility. Discover materials and methods shaping the future of sustainable furniture.",
+    "content": "Sustainable furniture embraces the use of renewable, recycled, and responsibly sourced materials. Bamboo, reclaimed wood, and recycled metals are increasingly replacing non-biodegradable components. Beyond materials, sustainable craftsmanship values durability—creating pieces that last generations, not seasons. Consumers can also support local artisans and companies using eco-certifications. By choosing sustainability, we not only furnish homes but also protect forests and ecosystems for future generations.",
+    "date": "September 20, 2025",
+    "category": "Sustainability",
+    "featuredImage": "/assets/blog/sustainable-furniture.jpg"
+  },
+  {
+    "title": "5 Space-Saving Furniture Ideas for Small Apartments",
+    "brief": "Small spaces demand smart solutions. These furniture ideas help you make the most of every inch without sacrificing style.",
+    "content": "In compact homes, furniture should serve multiple functions. Think storage ottomans that double as coffee tables or beds with built-in drawers. Wall-mounted desks create flexible work zones, while nesting tables save space when not in use. Mirrors and light-toned furniture can visually expand a room, giving an airy feel. Always measure your area before purchasing—proportionate furniture ensures comfort and functionality in small living spaces.",
+    "date": "September 15, 2025",
+    "category": "Smart Living",
+    "featuredImage": "/assets/blog/space-saving.jpg"
+  },
+  {
+    "title": "Wood Finishes That Elevate Your Home Décor",
+    "brief": "From oak to walnut, wood finishes define the character of your furniture. Learn how to match finishes to your décor style.",
+    "content": "Wood finishes determine a piece’s look, durability, and mood. Light finishes like birch or ash create a Scandinavian vibe—bright, airy, and fresh. Meanwhile, darker tones like mahogany or walnut add warmth and sophistication. Matte finishes feel modern and understated, while gloss coatings add luxury. When mixing woods in a room, maintain undertone consistency (cool or warm). This subtle harmony keeps your décor cohesive and elegant.",
+    "date": "August 30, 2025",
+    "category": "Furniture Architecture",
+    "featuredImage": "/assets/blog/wood-finishes.jpg"
+  },
+  {
+    "title": "Blending Modern and Traditional Furniture: A Timeless Balance",
+    "brief": "Can antique pieces coexist with sleek, modern designs? Absolutely. Here’s how to create harmony between old and new.",
+    "content": "Mixing furniture eras brings depth and personality to any room. The secret lies in balance—pair ornate woodwork with clean, neutral backgrounds. For instance, a vintage armchair can shine beside a minimalist table if colors complement each other. Texture contrast also matters: smooth surfaces with distressed woods create visual interest. Start with one style as the foundation, then introduce accents from another. This blend tells a story of evolution and taste.",
+    "date": "August 18, 2025",
+    "category": "Home Styling",
+    "featuredImage": "/assets/blog/modern-traditional.jpg"
+  },
+  {
+    "title": "Why Custom Furniture Is Worth the Investment",
+    "brief": "Custom-made furniture captures your unique vision. Discover why more homeowners are choosing personalization over mass production.",
+    "content": "Custom furniture allows homeowners to design pieces tailored to their exact dimensions, materials, and lifestyle. Unlike mass-produced options, bespoke furniture maximizes space and reflects personal identity. Artisans can incorporate unique features—hidden compartments, carved initials, or specialized finishes. Though it may cost more upfront, custom pieces often outlast factory-made alternatives and become cherished heirlooms. It’s an investment in quality, individuality, and longevity.",
+    "date": "July 25, 2025",
+    "category": "Craftsmanship",
+    "featuredImage": "/assets/blog/custom-furniture.jpg"
+  }
+]
