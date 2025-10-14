@@ -63,6 +63,13 @@ export const subcategories: { [key: string]: string[] } = {
     ],
     "Statement Furniture Pieces": [
 
+    ],
+    "Wood-accented Corporate Giveaways" : [
+      "Handbags with Wood Handles / Accents",
+      "Tote Bags with Wood Grain Finish",
+      "Laptop / Office Bags with Wooden Branding Plates.", 
+      "Backpacks with Wood-Inspired Patterns",
+      "Customizable Bags",
     ]
 };
 
@@ -78,14 +85,19 @@ export const categories = [
     fullname: "Living Room Essentials" },
   { name: "Space-Saving", imageUrl:"https://picketandrail.com/cdn/shop/articles/multifunctional-furniture-for-singapore-homes-909803.jpg?v=1686388612",
       fullname: "Space-Saving & Multifunctional" },
-  { name: "Custom Designs", imageUrl:"https://firebasestorage.googleapis.com/v0/b/wood-crest.firebasestorage.app/o/products%2FBedroom%20Furniture%2Fd6bc3671-17c7-4fae-b049-23b3a10f76aa-custom%20traveling%20bag.jpg?alt=media&token=730d83fd-0384-46f3-b465-812a0e687852",  
+  { name: "Custom Designs", imageUrl:"https://sfd-craft.com/wp-content/uploads/2023/05/trahus-spruce-solid-wood-coffee-table.jpg",  
     fullname: "Custom & Dope Designs" },
   { name: "Outdoor", imageUrl:"https://www.jensenoutdoor.com/wp-content/uploads/2024/09/PlumeVelo-2x1Aspect-Shot1.jpg", 
     fullname: "Outdoor Furniture" },
   { name: "Office", imageUrl:"https://www.eunicon.com.ng/cdn/shop/products/rosewood-executive-desk-with-metal-legs_1028x.jpg?v=1617895155",
      fullname: "Office Furniture" },
   { name: "Accessories", imageUrl:"https://www.tradegully.com/wp-content/uploads/2024/04/modern-living-room-furniture.jpg",  fullname: "Accessories & Decor" },
-  {name: "Statement Furniture", imageUrl: "https://firebasestorage.googleapis.com/v0/b/wood-crest.firebasestorage.app/o/products%2FBedroom%20Furniture%2Fd6bc3671-17c7-4fae-b049-23b3a10f76aa-custom%20traveling%20bag.jpg?alt=media&token=730d83fd-0384-46f3-b465-812a0e687852", fullname:"Statement Furniture Pieces"}
+  {name: "Statement Furniture", imageUrl: "https://firebasestorage.googleapis.com/v0/b/wood-crest.firebasestorage.app/o/products%2FStatement%20Furniture%20Pieces%2F8885aca2-1d78-4fb7-94af-f9f413b4c27f-accent%20chair.jpg?alt=media&token=a4e69a8b-e489-4319-bfa3-b9a2055e4b2f",
+     fullname:"Statement Furniture Pieces"},
+  {
+    name: "Corporate Giveaways", imageUrl: "https://firebasestorage.googleapis.com/v0/b/wood-crest.firebasestorage.app/o/products%2FBedroom%20Furniture%2Fd6bc3671-17c7-4fae-b049-23b3a10f76aa-custom%20traveling%20bag.jpg?alt=media&token=730d83fd-0384-46f3-b465-812a0e687852",
+    fullname: "Wood-accented Corporate Giveaways"
+  }
 ];
 
 export const filterOptions = [

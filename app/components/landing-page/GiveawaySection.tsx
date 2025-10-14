@@ -1,6 +1,7 @@
 import { Button } from "../ui/button"
 import customBags from "@/public/assets/customs.png"
 import Image from "next/image"
+import Link from "next/link"
 export default function GiveawaySection() {
     return (
         <div className="w-full p-4">
@@ -12,16 +13,16 @@ export default function GiveawaySection() {
                         Contact us today to customize your branded wooden design bags.
                     </p>
                     <div className="md:flex space-x-6 hidden justify-center md:justify-start my-6">
-                        <Button variant="secondary" size="lg" className="p-6" >View Collections</Button>
-                        <Button variant="default" size="lg" className="p-6 bg-[#2C2C2C] text-[#F5F5F5] hover:bg-[#1A1A1A]" >Request a Quote</Button>
+                        <Button variant="secondary" size="lg" className="p-6" ><Link href="/products/Wood-accented Corporate Giveaways">View Collections</Link></Button>
+                        <Button variant="default" size="lg" className="p-6 bg-[#2C2C2C] text-[#F5F5F5] hover:bg-[#1A1A1A]" ><Link href="mailto:isy@woodcrestdesigns.com?subject=Request%20for%20Corporate%20Giveaways">Request a Quote</Link></Button>
                     </div>
                 </div>
                 <div className="md:w-1/2 md:-mr-16 lg:-mr-24">
                     <Image src={customBags} alt="custom bags" width={300} height={300} className="w-full h-full object-cover"/>
                 </div>
                 <div className="md:hidden space-y-4 flex flex-col justify-center mb-6">
-                        <Button variant="secondary" size="lg" className="p-6" >View Collections</Button>
-                        <Button variant="default" size="lg" className="p-6 bg-[#2C2C2C] text-[#F5F5F5] hover:bg-[#1A1A1A]" >Request a Quote</Button>
+                        <Button variant="secondary" size="lg" className="p-6"><Link href="/products/Wood-accented Corporate Giveaways">View Collections</Link></Button>
+                        <Button variant="default" size="lg" className="p-6 bg-[#2C2C2C] text-[#F5F5F5] hover:bg-[#1A1A1A]" ><Link href="mailto:isy@woodcrestdesigns.com?subject=Request%20for%20Corporate%20Giveaways">Request a Quote</Link></Button>
                     </div>
             </div>
 

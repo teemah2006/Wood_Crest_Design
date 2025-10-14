@@ -36,7 +36,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onDelete, onEditSucc
 
             <div className="mt-4 flex justify-between">
                 <Button size="small" shape="rounded-md" type="button" color="gray" text="Edit" onClick={() => setIsEditing(true)} />
-                <Button size="small" shape="rounded-md" type="button" color="black" text="Delete" onClick={() => onDelete(product.id)} />
+                <Button size="small" shape="rounded-md" type="button" color="black" text="Delete" onClick={() => onDelete(product.id? product.id: '')} />
+            </div>
+
+            <div className="mt-4">
+                {
+                    product.reviews && product.reviews.map((rev, index) => (
+                        <div key={index}>
+                            <p>{rev.title}</p>
+                            <p>{rev.body}</p>
+                            <p>{rev.name}</p>
+                            <p>{rev.date}</p>
+                        </div>
+                    ))
+                }
             </div>
 
         </div>

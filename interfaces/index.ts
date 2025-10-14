@@ -8,8 +8,17 @@ export interface ButtonProps{
     color?: 'black' | 'gray';
 }
 
+export interface reviewsProps{
+    title: string;
+    body: string;
+    name: string;
+    rating: number;
+    date: string;
+}
+
 export interface ProductProps {
     id: string;
+    publicId: string;
     name: string;
     price: number;
     description: string;
@@ -21,6 +30,7 @@ export interface ProductProps {
         nanoseconds: number;
     };
     isSignature?: boolean;
+    reviews?: reviewsProps[]
 }
 
 export interface ProductDisplayProps {
@@ -29,6 +39,7 @@ export interface ProductDisplayProps {
 
 export interface ProductInputProps {
     id?: string;
+    publicId?: string,
     name?: string;
     price?: number;
     description?: string;
@@ -40,7 +51,8 @@ export interface ProductInputProps {
         nanoseconds: number;
     };
     onSuccess?: () => void;
-    isSignature?: boolean
+    isSignature?: boolean;
+    reviews?: reviewsProps[]
 }
 export interface ProductCardProps {
     product: ProductProps;
@@ -74,8 +86,25 @@ export interface CartState {
   totalQuantity: () => number;
 }
 
+export interface FavItem {
+    product: ProductProps;
+}
+
+export interface FavState {
+    favourites: FavItem[];
+    addToFav: (item: FavItem) => void;
+    removeFromFav: (id: string) => void;
+    clearFav: () => void;
+    total: () => number;
+}
+
 export interface CategoryPageProps {
   category: string
+}
+
+export interface ProductPageProps{
+    category: string;
+    id: string
 }
 
 export interface BlogPostProps{

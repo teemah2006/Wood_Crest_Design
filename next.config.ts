@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "sfd-craft.com",
+      },
+      {
+        protocol: "https",
+        hostname: "media.designcafe.com",
+      },
+      {
+        protocol: "https",
         hostname: "www.eunicon.com.ng",
       },
       {

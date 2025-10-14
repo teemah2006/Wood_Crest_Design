@@ -45,14 +45,18 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
         }
 
         // Filter by category
-        if (categoryFilter && categoryFilter !== 'All') {
+        if (categoryFilter && categoryFilter !== 'All' && categoryFilter !== 'Signature Products') {
             filtered = filtered.filter(product => product.category === categoryFilter);
+        }
+
+        if(categoryFilter && categoryFilter === 'Signature Products'){
+            filtered = filtered.filter(product => product.isSignature !== undefined && product.isSignature === true)
         }
 
         // Filter by sub-category
         if (subCategoryFilter && subCategoryFilter.length > 0) {
             filtered = filtered.filter(product =>
-                product.subCategory !== undefined && subCategoryFilter.includes(product.subCategory)
+                product.subCategory !== undefined && subCategoryFilter.includes(product.subCategory.toLocaleLowerCase()) || subCategoryFilter.includes(product.category.toLocaleLowerCase())
             );
         }
 
@@ -91,6 +95,7 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                     const data = doc.data();
                     return {
                         id: doc.id,
+                        publicId: data.publicId,
                         name: data.name,
                         price: data.price,
                         description: data.description,
@@ -98,7 +103,8 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                         subCategory: data.subCategory,
                         images: data.images,
                         createdAt: data.createdAt,
-                        isSignature: data.isSignature? data.isSignature : false
+                        isSignature: data.isSignature? data.isSignature : false,
+                        reviews: data.reviws? data.reviews: [],
                         // add any other fields required by ProductProps here
                     } as ProductProps;
                 });
@@ -139,11 +145,11 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
     }
 
     return (
-        <div className="p-4 max-h-screen mb-4">
+        <div className="p-4 h-full mb-4">
             <p className="text-muted-foreground mb-2">
                 {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  max-h-screen  ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  h-full  ">
 
                 {filteredProducts.map(product => (
                     <ProductDisplayCard product={product} key={product.id} />

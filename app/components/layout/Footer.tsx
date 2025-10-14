@@ -9,8 +9,32 @@ import { Input } from '../ui/input';
 import { Separator } from '../ui/separator';
 import { useState } from 'react';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 export default function Footer() {
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true)
+        try {
+            await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email
+                }),
+            });
+            setLoading(false)
+            toast.success('Thank you for subscribing!');
+            setEmail("")
+
+        } catch (error) {
+            toast.error('An error occurred. Please try again.')
+            console.log('error subscribing', error)
+        }
+
+    }
     return (
         <footer className="bg-[#EEEEEE] quattrocento-regular z-10">
             <div className="container mx-auto px-4 py-12">
@@ -63,7 +87,7 @@ export default function Footer() {
                         <p className="text-muted-foreground text-sm">
                             Subscribe to get the latest offers and updates.
                         </p>
-                        <form className="flex space-x-2">
+                        <form className="flex space-x-2" onSubmit={handleSubscribe}>
                             <Input
                                 type="email"
                                 value={email}
@@ -72,7 +96,7 @@ export default function Footer() {
                                 className="flex-1"
                                 required
                             />
-                            <Button type='submit'>Subscribe</Button>
+                            <Button type='submit' disabled={loading}>Subscribe</Button>
 
                         </form>
                     </div>

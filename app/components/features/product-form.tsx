@@ -16,7 +16,7 @@ async function isAdmin(userId: string) {
   const userDoc = await getDoc(doc(db, "users", userId));
   return userDoc.exists() && userDoc.data().role === "admin";
 }
-
+import { categories } from "@/constants";
 
 
 
@@ -34,21 +34,12 @@ export default function AddProductForm(props: ProductInputProps = {}) {
   const [description, setDescription] = useState(props ? props.description ? props.description : "" : "");
   const [productId, setProductId] = useState(props ? props.id ? props.id : "" : "");
   const [isSignature, setIsSignature] = useState(props?.isSignature ? props.isSignature : false);
+  const publicId = props?.publicId ? props.publicId : uuidv4();
+  const reviews = props?.reviews ? props.reviews : []
 
 
   // Define categories
-  const categories = [
-    { value: "Sofas & Seating", label: "Sofas & Seating" },
-    { value: "Bedroom Furniture", label: "Bedroom Furniture" },
-    { value: "Dining & Kitchen", label: "Dining & Kitchen" },
-    { value: "Office Furniture", label: "Office Furniture" },
-    { value: "Living Room Essentials", label: "Living Room Essentials" },
-    { value: "Space-Saving & Multifunctional", label: "Space-Saving & Multifunctional" },
-    { value: "Outdoor Furniture", label: "Outdoor Furniture" },
-    { value: "Custom & Dope Designs", label: "Custom & Dope Designs" },
-    { value: "Accessories & Decor", label: "Accessories & Decor" },
-    {value: "Statement Furniture Pieces", label: "Statement Furniture Pieces"}
-  ];
+  
 
 
 
@@ -96,6 +87,8 @@ export default function AddProductForm(props: ProductInputProps = {}) {
         subCategory,
         images: uploadedUrls,
         isSignature,
+        reviews,
+        publicId,
         updatedAt: new Date(),
       };
 
@@ -167,8 +160,8 @@ export default function AddProductForm(props: ProductInputProps = {}) {
       >
         <option value="">Select Category</option>
         {categories.map((cat) => (
-          <option key={cat.value} value={cat.value}>
-            {cat.label}
+          <option key={cat.fullname} value={cat.fullname}>
+            {cat.name}
           </option>
         ))}
       </select>

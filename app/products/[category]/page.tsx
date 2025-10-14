@@ -76,12 +76,12 @@ export default function CategoryPage({ params }: { params: Promise<CategoryPageP
             subcategories[decodedCategory].map((sub) => (
               <div className="flex items-center gap-3" key={sub}>
         <Checkbox id={sub}
-        checked={checkedSubCategories.includes(sub)}
+        checked={checkedSubCategories.includes(sub.toLocaleLowerCase())}
          onCheckedChange={(checked) => {
                   setcheckedSubCategories((prev) =>
                     checked
-                      ? [...prev, sub]
-                      : prev.filter((item) => item !== sub)
+                      ? [...prev, sub.toLocaleLowerCase()]
+                      : prev.filter((item) => item !== sub.toLocaleLowerCase())
                   );
                 }}/>
                 <Label htmlFor={sub}>{sub}</Label>

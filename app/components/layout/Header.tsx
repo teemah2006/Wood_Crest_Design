@@ -36,7 +36,7 @@ export default function Header() {
     }, [searchTerm, router])
 
     return (
-        <header className="quattrocento-regular bg-white z-10 border-b border-[#D9D9D9] w-full md:h-[96px] h-[80px] flex items-center justify-between md:p-8 p-4 relative">
+        <header className="quattrocento-regular bg-white sticky top-0 z-10 lg:relative border-b border-[#D9D9D9] w-full md:h-[96px] h-[80px] flex items-center justify-between md:p-8 p-4">
             {/* Icon button only on mobile */}
             <Button
                 variant="ghost"
@@ -171,7 +171,7 @@ export default function Header() {
                 <Link href="/favourites" className="">
                     <FaRegHeart className="w-4 h-4 lg:w-6 lg:h-6 cursor-pointer" />
                 </Link>
-                <Link href="/account" className="">
+                <Link href="/profile" className="">
                     <FiUser className="w-4 h-4 lg:w-6 lg:h-6 cursor-pointer" />
                 </Link>
 

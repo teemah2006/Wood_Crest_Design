@@ -1,12 +1,10 @@
-import React from "react";
+import { use} from "react";
+import { ProductPageProps } from "@/interfaces";
+import ProductClient from "@/app/components/common/ProductClient";
 
-const Detail: React.FC = () => {
-  return (
-    <div>
-      {/* Your login form or content here */}
-      Login Page
-    </div>
-  );
-};
+export default function ProductPage({ params }: { params: Promise<ProductPageProps> }) {
+  const { category,id } = use(params);
 
-export default Detail;
+  return <ProductClient publicId={id}/>
+  
+}
