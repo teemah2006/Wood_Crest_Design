@@ -104,7 +104,7 @@ const ProductsContent: React.FC = () => {
         ))}
       </div>
       {/* products grid */}
-      <div className="px-4 mb-8">
+      <div className="md:px-4 mb-8">
         <ProductList user="customer" categoryFilter={currentCategory} sortBy={sortBy} query={query}/>
       </div>
     </div>

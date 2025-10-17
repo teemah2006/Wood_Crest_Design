@@ -22,15 +22,14 @@ import {
 import CartPage from "./CartCard";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
-
-
+import { useRouter } from "next/navigation";
 
 const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, subCategoryFilter, sortBy, priceRange }) => {
     const [products, setProducts] = useState<ProductProps[]>([]);
     const [loading, setLoading] = useState(true);
     const cartTotal = useCartStore((state) => state.totalQuantity());
     const pathname = usePathname();
-
+    const router = useRouter();
 
 
     const filteredProducts = useMemo(() => {
@@ -49,7 +48,7 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
             filtered = filtered.filter(product => product.category === categoryFilter);
         }
 
-        if(categoryFilter && categoryFilter === 'Signature Products'){
+        if (categoryFilter && categoryFilter === 'Signature Products') {
             filtered = filtered.filter(product => product.isSignature !== undefined && product.isSignature === true)
         }
 
@@ -103,8 +102,8 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                         subCategory: data.subCategory,
                         images: data.images,
                         createdAt: data.createdAt,
-                        isSignature: data.isSignature? data.isSignature : false,
-                        reviews: data.reviws? data.reviews: [],
+                        isSignature: data.isSignature ? data.isSignature : false,
+                        reviews: data.reviws ? data.reviews : [],
                         // add any other fields required by ProductProps here
                     } as ProductProps;
                 });
@@ -149,13 +148,15 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
             <p className="text-muted-foreground mb-2">
                 {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  h-full  ">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6  h-full ">
 
                 {filteredProducts.map(product => (
                     <ProductDisplayCard product={product} key={product.id} />
                 ))}
+            </div>
 
-                {!pathname.startsWith("/admin") && (
+            
+            {!pathname.startsWith("/admin") && (
                 <Drawer direction="right">
                     <DrawerTrigger >
                         <div className="fixed bottom-4 rounded-full md:p-4 p-2 bg-[#D9D9D9] right-2 shadow-lg z-2 cursor-pointer hover:shadow-xl transition-shadow duration-300">
@@ -170,13 +171,11 @@ const ProductList: React.FC<ProductListProps> = ({ user, query, categoryFilter, 
                         </DrawerHeader>
                         <CartPage />
                         <DrawerFooter>
-                            <Button variant="default">Check Out</Button>
+                            <Button variant="default" onClick={()=> router.push('/checkout')}>Check Out</Button>
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
-                )}
-
-            </div>
+            )}
         </div>
 
     )

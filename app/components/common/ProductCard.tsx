@@ -46,7 +46,7 @@ const ProductDisplayCard: React.FC<ProductDisplayProps> = ({ product }) => {
 
     const IsAdded = cart.some(item => item.product.id === product.id);
     return (
-        <div className="border bg-white rounded-lg p-4 shadow hover:shadow-lg transition-shadow duration-300">
+        <div className="border bg-white rounded-lg p-2 lg:p-4 shadow hover:shadow-lg transition-shadow duration-300">
 
             {/* desktop view */}
             <div className="relative hidden lg:block w-full h-60 group mb-4">
@@ -71,9 +71,9 @@ const ProductDisplayCard: React.FC<ProductDisplayProps> = ({ product }) => {
             </div>
 
             {/* mobile and tab view */}
-            <div className="relative lg:hidden w-full h-60 group mb-4" onClick={changeView}>
+            <div className="relative lg:hidden w-full h-50 group mb-4" onClick={changeView}>
                 {product.images && product.images.length > 0 && (
-                    <Image width={200} height={200} src={product.images[0]} alt={product.name} className="w-full h-60 object-cover  rounded" />
+                    <Image width={150} height={200} src={product.images[0]} alt={product.name} className="w-full h-full object-cover  rounded" />
                 )}
                 {showButtons &&
                     <div className="absolute inset-0 bg-transparent transition-opacity duration-300 flex flex-col justify-between rounded p-4">
@@ -95,9 +95,10 @@ const ProductDisplayCard: React.FC<ProductDisplayProps> = ({ product }) => {
 
             </div>
 
-            <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+            <h2 className="md:text-xl text-md font-semibold mb-2">{product.name}</h2>
             <p className="text-gray-700 mb-2">RF {product.price.toFixed(2)}</p>
-            <p className="text-sm text-gray-500">{product.category}{product.subCategory ? ` > ${product.subCategory}` : ""}</p>
+            <p className="text-sm text-gray-500 hidden md:block">{product.category}{product.subCategory ? ` > ${product.subCategory}` : ""}</p>
+            <p className="text-sm text-gray-500  md:hidden">{product.category}</p>
 
         </div>
     )

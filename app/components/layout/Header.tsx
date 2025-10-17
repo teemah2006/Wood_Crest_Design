@@ -168,7 +168,7 @@ export default function Header() {
                         </div>
                     </div>
                 )}
-                <Link href="/favourites" className="">
+                <Link href="/favorites" className="">
                     <FaRegHeart className="w-4 h-4 lg:w-6 lg:h-6 cursor-pointer" />
                 </Link>
                 <Link href="/profile" className="">

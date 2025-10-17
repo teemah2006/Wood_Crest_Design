@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import ProductsContent from "./ProductsContent"
+import PaymentSuccessContent from "./PageContent"
 
 export default function ProductsPage() {
   return (
@@ -7,7 +7,7 @@ export default function ProductsPage() {
   <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#E5A000]"></div>
   <p className="mt-2 text-gray-700">Loading...</p>
   </div>}>
-      <ProductsContent />
+      <PaymentSuccessContent />
     </Suspense>
   )
 }

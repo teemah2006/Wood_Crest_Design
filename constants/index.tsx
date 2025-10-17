@@ -64,7 +64,7 @@ export const subcategories: { [key: string]: string[] } = {
     "Statement Furniture Pieces": [
 
     ],
-    "Wood-accented Corporate Giveaways" : [
+    "Wood-Accented Corporate Giveaways" : [
       "Handbags with Wood Handles / Accents",
       "Tote Bags with Wood Grain Finish",
       "Laptop / Office Bags with Wooden Branding Plates.", 
